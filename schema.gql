@@ -1,0 +1,61 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Patient {
+  id: ID!
+  appointmentTime: String
+  userRole: String
+  user: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  role: String!
+  password: String!
+  birthday: String
+  phone: Float
+  email: String
+  address: String
+  photoID: String
+}
+
+type TokenPayload {
+  token: String
+}
+
+type Query {
+  hello: String!
+  findUserById(id: String!): User!
+  findAllUsers: [User!]!
+  findPatientById(id: String!): Patient!
+  findAllPatients: [Patient!]!
+}
+
+type Mutation {
+  login(loginInput: LoginInput!): TokenPayload!
+  register(registerInput: RegisterInput!): TokenPayload!
+  addPatient(patientInput: PatientInput!): Patient!
+}
+
+input LoginInput {
+  name: String!
+  password: String!
+  role: String!
+}
+
+input RegisterInput {
+  name: String!
+  password: String!
+  role: String!
+  birthday: String
+  phone: Float
+  email: String
+  address: String
+  photoID: String
+}
+
+input PatientInput {
+  appointmentTime: String!
+}
